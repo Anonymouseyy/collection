@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://deta.space/docs/en/reference/base/HTTP -->
+<html dir="ltr" lang="en-us" class="initial astro-NPOKQNRO"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Global Metadata -->
+<meta name="viewport" content="width=device-width">
+<meta name="generator" content="Astro v1.9.2">
+
+<link rel="icon" type="image/png" href="https://deta.space/other_assets/favicon.png">
+<link rel="sitemap" href="https://deta.space/other_assets/sitemap.xml">
+
+<!-- Preload fonts -->
+<link rel="preload" href="https://deta.space/other_assets/ArticulatCF-DemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://deta.space/other_assets/ArticulatCF-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous"> 
+<link rel="preload" href="https://deta.space/other_assets/CartographCF-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Scrollable a11y code helper -->
+<script src="./HTTP API - Space Docs_files/make-scrollable-code-focusable.js.download"></script>
+
+<!-- This is intentionally inlined to avoid FOUC -->
+<script>
+	const root = document.documentElement;
+	const theme = localStorage.getItem('theme');
+	if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+		root.classList.add('theme-dark');
+	} else {
+		root.classList.remove('theme-dark');
+	}
+</script>
+
+<script defer="" data-domain="deta.space" src="./HTTP API - Space Docs_files/plausible.js.download"></script>
+
+		<!-- Page Metadata --><link rel="canonical" href="https://deta.space/docs/en/reference/base/HTTP/">
+
+<!-- OpenGraph Tags -->
+<meta property="og:title" content="HTTP API 🚀 Space Docs">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://deta.space/docs/en/reference/base/HTTP/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://deta.space/">
+<meta property="og:image:alt" content="">
+<meta name="description" property="og:description" content="Deta Space Developer Documentation and Guides">
+<meta property="og:site_name" content="Space Docs">
+
+<!-- Twitter Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="detahq">
+<meta name="twitter:title" content="HTTP API 🚀 Space Docs">
+<meta name="twitter:description" content="Deta Space Developer Documentation and Guides">
+<meta name="twitter:image" content="https://deta.space/">
+<meta name="twitter:image:alt" content="">
+
+<!--
+  TODO: Add json+ld data, maybe https://schema.org/APIReference makes sense?
+  Docs: https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data
+  https://www.npmjs.com/package/schema-dts seems like a great resource for implementing this.
+  Even better, there's a React component that integrates with `schema-dts`: https://github.com/google/react-schemaorg
+-->
+
+		<title>
+			HTTP API - Space Docs
+		</title>
+		
+		
+	<link rel="stylesheet" href="./HTTP API - Space Docs_files/hello-world-c4b6338d.css">
+<link rel="stylesheet" href="./HTTP API - Space Docs_files/app_icon-65bcbf96.css">
+<link rel="stylesheet" href="./HTTP API - Space Docs_files/sdk-8babef9c.css">
+<link rel="stylesheet" href="./HTTP API - Space Docs_files/index-f7ec40be.css"><link rel="modulepreload" as="script" crossorigin="" href="https://deta.space/docs_chunks/Teletype-3d19cb1f.js"><link rel="modulepreload" as="script" crossorigin="" href="https://deta.space/docs_chunks/index-c2e60a75.js"><link rel="modulepreload" as="script" crossorigin="" href="https://deta.space/docs_chunks/index.e3b0c442-832d4dc1.js"><link rel="modulepreload" as="script" crossorigin="" href="https://deta.space/docs_chunks/ThemeToggle-2e9217e8.js"><link rel="modulepreload" as="script" crossorigin="" href="https://deta.space/docs_chunks/metadata-668f29f7.js"></head>
+
+	<body class="astro-NPOKQNRO" data-new-gr-c-s-check-loaded="14.1098.0" data-gr-ext-installed="">
+		<header class="astro-OI3ILYNK">
+	<a href="https://deta.space/docs/en/reference/base/HTTP#article" class="sr-only focus:not-sr-only skiplink astro-UCZLVIEB"><span class="astro-UCZLVIEB">Skip to Content</span></a>
+
+
+	<nav class="nav-wrapper astro-OI3ILYNK" title="Top Navigation">
+		<div class="menu-toggle astro-OI3ILYNK">
+			<script>(self.Astro=self.Astro||{}).idle=t=>{const e=async()=>{await(await t())()};"requestIdleCallback"in window?window.requestIdleCallback(e):setTimeout(e,200)},window.dispatchEvent(new Event("astro:idle"));</script><astro-island uid="cTucJ" component-url="/docs_assets/js/SidebarToggle-3e4de963.js" component-export="default" renderer-url="/docs_assets/js/client-8b8a1f0c.js" props="{&quot;class&quot;:[0,&quot;astro-OI3ILYNK&quot;]}" client="idle" opts="{&quot;name&quot;:&quot;SidebarToggle&quot;,&quot;value&quot;:true}" await-children=""><button type="button" aria-pressed="false" id="menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg><span class="sr-only">Toggle sidebar</span></button></astro-island>
+		</div>
+
+		<div class="logo flex astro-OI3ILYNK">
+			<a href="https://deta.space/docs/" class="astro-OI3ILYNK">
+				<svg width="35" height="35" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path d="M16.3109 0.61792C25.2164 0.61792 32.4358 7.83733 32.4358 16.7429C32.4358 25.6485 25.2164 32.8679 16.3109 32.8679C7.4052 32.8679 0.185791 25.6485 0.185791 16.7429C0.185791 7.83733 7.4052 0.61792 16.3109 0.61792Z" fill="#F73B95"></path>
+	<path d="M16.3493 3.7666C23.5585 3.7666 29.4028 9.61088 29.4028 16.8202C29.4028 24.0295 23.5585 29.8737 16.3493 29.8737C9.13997 29.8737 3.29565 24.0295 3.29565 16.8202C3.29565 9.61088 9.13997 3.7666 16.3493 3.7666Z" fill="#BD399C"></path>
+	<path d="M16.3491 7.22192C21.65 7.22192 25.9473 11.5191 25.9473 16.8202C25.9473 22.1212 21.65 26.4183 16.3491 26.4183C11.0482 26.4183 6.75098 22.1212 6.75098 16.8202C6.75098 11.5191 11.0482 7.22192 16.3491 7.22192Z" fill="#93388E"></path>
+	<path d="M16.2724 10.1392C19.8769 10.1392 22.7991 13.0613 22.7991 16.6659C22.7991 20.2705 19.8769 23.1927 16.2724 23.1927C12.6678 23.1927 9.74561 20.2705 9.74561 16.6659C9.74561 13.0613 12.6678 10.1392 16.2724 10.1392Z" fill="#6030A2"></path>
+</svg>
+				<h1 class="astro-OI3ILYNK">Space Docs</h1>
+			</a>
+		</div>
+		
+
+		
+		
+		<script>(self.Astro=self.Astro||{}).only=t=>{(async()=>await(await t())())()},window.dispatchEvent(new Event("astro:only"));</script><astro-island uid="Z1a3mC1" component-url="/docs_assets/js/NavLinks-cfba603e.js" component-export="default" renderer-url="/docs_assets/js/client-f8c1fc7f.js" props="{&quot;isMigration&quot;:[0,false],&quot;isManual&quot;:[0,false],&quot;isDocs&quot;:[0,true],&quot;isChangelog&quot;:[0,false],&quot;class&quot;:[0,&quot;astro-OI3ILYNK&quot;]}" client="only" opts="{&quot;name&quot;:&quot;NavLinks&quot;,&quot;value&quot;:&quot;svelte&quot;}"><div class="links svelte-1szctfx"><a href="https://deta.space/" class="svelte-1szctfx">Open Canvas</a> <a href="https://deta.space/manual/" class="svelte-1szctfx">Manual</a> <a href="https://deta.space/changelog" class="svelte-1szctfx">Changelog</a> <a href="https://go.deta.dev/discord" class="svelte-1szctfx">Join Discord</a></div></astro-island>
+
+		<div class="theme-toggle astro-OI3ILYNK">
+			<astro-island uid="1uLUf3" component-url="/docs_assets/js/ThemeToggle-7cc1b43a.js" component-export="default" renderer-url="/docs_assets/js/client-f8c1fc7f.js" props="{&quot;class&quot;:[0,&quot;astro-OI3ILYNK&quot;]}" client="visible" opts="{&quot;name&quot;:&quot;ThemeToggle&quot;,&quot;value&quot;:true}" await-children=""><button class="themeToggle svelte-nvhrf7"><div style="width: 20px; height: 20px;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg></div></button></astro-island>
+		</div>
+
+		<!-- <div class="search-item">
+			<Search client:idle />
+		</div> -->
+	</nav>
+</header>
+
+
+
+
+		<main class="layout astro-NPOKQNRO">
+			<aside id="grid-left" class="grid-sidebar astro-NPOKQNRO" title="Site Navigation">
+				<nav aria-labelledby="grid-left" class="astro-KDF5HYSP">
+  <ul class="nav-groups astro-KDF5HYSP">
+    <li class="astro-KDF5HYSP">
+          <div class="nav-group astro-KDF5HYSP">
+            <h2 class="nav-group-title astro-KDF5HYSP">
+              Introduction
+            </h2>
+            <ul class="astro-KDF5HYSP">
+              <li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/introduction/start" class="astro-KDF5HYSP">
+                        Getting started
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/introduction/why-deta" class="astro-KDF5HYSP">
+                        For dreamers and doers
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/introduction/personal-cloud" class="astro-KDF5HYSP">
+                        The personal cloud
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/introduction/first-app" class="astro-KDF5HYSP">
+                        Your first Space app
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/introduction/app-anatomy" class="astro-KDF5HYSP">
+                        Anatomy of a Space app
+                      </a>
+                    </li>
+            </ul>
+          </div>
+        </li><li class="astro-KDF5HYSP">
+          <div class="nav-group astro-KDF5HYSP">
+            <h2 class="nav-group-title astro-KDF5HYSP">
+              Basics
+            </h2>
+            <ul class="astro-KDF5HYSP">
+              <li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/basics/cli" class="astro-KDF5HYSP">
+                        Setting up the CLI
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/basics/projects" class="astro-KDF5HYSP">
+                        Working with projects
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/basics/micros" class="astro-KDF5HYSP">
+                        Adding compute
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/basics/data" class="astro-KDF5HYSP">
+                        Dealing with data
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/basics/revisions" class="astro-KDF5HYSP">
+                        Pushing changes
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/basics/app_icon" class="astro-KDF5HYSP">
+                        Creating an App Icon
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/basics/releases" class="astro-KDF5HYSP">
+                        Launching your app
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/basics/extending_apps" class="astro-KDF5HYSP">
+                        Extending installed apps
+                      </a>
+                    </li>
+            </ul>
+          </div>
+        </li><li class="astro-KDF5HYSP">
+          <div class="nav-group astro-KDF5HYSP">
+            <h2 class="nav-group-title current-group-title astro-KDF5HYSP">
+              Reference
+            </h2>
+            <ul class="astro-KDF5HYSP">
+              <li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/reference/cli" class="astro-KDF5HYSP">
+                        CLI
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/reference/spacefile" class="astro-KDF5HYSP">
+                        Spacefile
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/reference/discovery" class="astro-KDF5HYSP">
+                        Discovery.md
+                      </a>
+                    </li><details class="child-section astro-KDF5HYSP" open="">
+                      <summary class="astro-KDF5HYSP">
+                        <p class="nav-link-child-title astro-KDF5HYSP">Base</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon astro-KDF5HYSP" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" class="astro-KDF5HYSP"></path>
+                        </svg>
+                      </summary>
+                      <ul class="astro-KDF5HYSP">
+                        <li class="nav-link astro-KDF5HYSP">
+                              <a href="https://deta.space/docs/en/reference/base/about" class="astro-KDF5HYSP">
+                                About Deta Base
+                              </a>
+                            </li><li class="nav-link astro-KDF5HYSP">
+                              <a href="https://deta.space/docs/en/reference/base/sdk" class="astro-KDF5HYSP">
+                                Base SDK
+                              </a>
+                            </li><li class="nav-link astro-KDF5HYSP">
+                              <a href="https://deta.space/docs/en/reference/base/HTTP" aria-current="page" class="astro-KDF5HYSP">
+                                HTTP API
+                              </a>
+                            </li><li class="nav-link astro-KDF5HYSP">
+                              <a href="https://deta.space/docs/en/reference/base/queries" class="astro-KDF5HYSP">
+                                Queries
+                              </a>
+                            </li><li class="nav-link astro-KDF5HYSP">
+                              <a href="https://deta.space/docs/en/reference/base/base_ui" class="astro-KDF5HYSP">
+                                Base UI
+                              </a>
+                            </li><li class="nav-link astro-KDF5HYSP">
+                              <a href="https://deta.space/docs/en/reference/base/expiring_items" class="astro-KDF5HYSP">
+                                Expiring Items
+                              </a>
+                            </li>
+                      </ul>
+                    </details><details class="child-section astro-KDF5HYSP">
+                      <summary class="astro-KDF5HYSP">
+                        <p class="nav-link-child-title astro-KDF5HYSP">Drive</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon astro-KDF5HYSP" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" class="astro-KDF5HYSP"></path>
+                        </svg>
+                      </summary>
+                      <ul class="astro-KDF5HYSP">
+                        <li class="nav-link astro-KDF5HYSP">
+                              <a href="https://deta.space/docs/en/reference/drive/about" class="astro-KDF5HYSP">
+                                About Deta Drive
+                              </a>
+                            </li><li class="nav-link astro-KDF5HYSP">
+                              <a href="https://deta.space/docs/en/reference/drive/sdk" class="astro-KDF5HYSP">
+                                Drive SDK
+                              </a>
+                            </li><li class="nav-link astro-KDF5HYSP">
+                              <a href="https://deta.space/docs/en/reference/drive/HTTP" class="astro-KDF5HYSP">
+                                HTTP API
+                              </a>
+                            </li><li class="nav-link astro-KDF5HYSP">
+                              <a href="https://deta.space/docs/en/reference/drive/drive_ui" class="astro-KDF5HYSP">
+                                Drive UI
+                              </a>
+                            </li>
+                      </ul>
+                    </details>
+            </ul>
+          </div>
+        </li><li class="astro-KDF5HYSP">
+          <div class="nav-group astro-KDF5HYSP">
+            <h2 class="nav-group-title astro-KDF5HYSP">
+              Quickstart Guides
+            </h2>
+            <ul class="astro-KDF5HYSP">
+              <li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/quickstart-guides/static" class="astro-KDF5HYSP">
+                        Run a Static App
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/quickstart-guides/next" class="astro-KDF5HYSP">
+                        Run a Next App
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/quickstart-guides/nuxt" class="astro-KDF5HYSP">
+                        Run a Nuxt App
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/quickstart-guides/sveltekit" class="astro-KDF5HYSP">
+                        Run a SvelteKit App
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/quickstart-guides/node" class="astro-KDF5HYSP">
+                        Run a Node.js App
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/quickstart-guides/python" class="astro-KDF5HYSP">
+                        Run a Python App
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/quickstart-guides/go" class="astro-KDF5HYSP">
+                        Run a Go App
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/quickstart-guides/rust" class="astro-KDF5HYSP">
+                        Run a Rust App
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/quickstart-guides/custom" class="astro-KDF5HYSP">
+                        Run a Custom App
+                      </a>
+                    </li>
+            </ul>
+          </div>
+        </li><li class="astro-KDF5HYSP">
+          <div class="nav-group astro-KDF5HYSP">
+            <h2 class="nav-group-title astro-KDF5HYSP">
+              Other
+            </h2>
+            <ul class="astro-KDF5HYSP">
+              <li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/other/help" class="astro-KDF5HYSP">
+                        Get Help
+                      </a>
+                    </li><li class="nav-link astro-KDF5HYSP">
+                      <a href="https://deta.space/docs/en/other/links" class="astro-KDF5HYSP">
+                        Related Links
+                      </a>
+                    </li>
+            </ul>
+          </div>
+        </li>
+  </ul>
+</nav>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    var target = document.querySelector('[aria-current="page"]');
+    if (target && target.offsetTop > window.innerHeight - 100) {
+      document.querySelector(".nav-groups").scrollTop = target.offsetTop;
+    }
+  });
+</script>
+
+
+
+
+			</aside>
+			<div id="grid-main" class="astro-NPOKQNRO">
+				<article id="article" class="content astro-WTRARWLM">
+	<section class="main-section astro-WTRARWLM">
+		<h1 id="overview" class="astro-WTRARWLM">HTTP API</h1>
+		<nav class="block sm:hidden astro-WTRARWLM">
+			<script>(self.Astro=self.Astro||{}).media=(s,a)=>{const t=async()=>{await(await s())()};if(a.value){const e=matchMedia(a.value);e.matches?t():e.addEventListener("change",t,{once:!0})}},window.dispatchEvent(new Event("astro:media"));</script><astro-island uid="Kc669" component-url="/docs_assets/js/TableOfContents-16c63d5b.js" component-export="default" renderer-url="/docs_assets/js/client-8b8a1f0c.js" props="{&quot;headings&quot;:[1,&quot;[[0,{\&quot;depth\&quot;:[0,2],\&quot;slug\&quot;:[0,\&quot;general--auth\&quot;],\&quot;text\&quot;:[0,\&quot;General &amp; Auth\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;root-url\&quot;],\&quot;text\&quot;:[0,\&quot;Root URL\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;auth\&quot;],\&quot;text\&quot;:[0,\&quot;Auth\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;content-type\&quot;],\&quot;text\&quot;:[0,\&quot;Content Type\&quot;]}],[0,{\&quot;depth\&quot;:[0,2],\&quot;slug\&quot;:[0,\&quot;endpoints\&quot;],\&quot;text\&quot;:[0,\&quot;Endpoints\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;put-items\&quot;],\&quot;text\&quot;:[0,\&quot;Put Items\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;example\&quot;],\&quot;text\&quot;:[0,\&quot;Example\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;207-multi-status\&quot;],\&quot;text\&quot;:[0,\&quot;207 Multi Status\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;client-errors\&quot;],\&quot;text\&quot;:[0,\&quot;Client errors\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;400-bad-request\&quot;],\&quot;text\&quot;:[0,\&quot;400 Bad Request\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;get-item\&quot;],\&quot;text\&quot;:[0,\&quot;Get Item\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;200-ok\&quot;],\&quot;text\&quot;:[0,\&quot;200 OK\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;404-not-found\&quot;],\&quot;text\&quot;:[0,\&quot;404 Not Found\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;delete-item\&quot;],\&quot;text\&quot;:[0,\&quot;Delete Item\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;200-ok-1\&quot;],\&quot;text\&quot;:[0,\&quot;200 OK\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;insert-item\&quot;],\&quot;text\&quot;:[0,\&quot;Insert Item\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;example-1\&quot;],\&quot;text\&quot;:[0,\&quot;Example\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;201-created\&quot;],\&quot;text\&quot;:[0,\&quot;201 Created\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;client-errors-1\&quot;],\&quot;text\&quot;:[0,\&quot;Client errors\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;409-conflict-if-key-already-exists\&quot;],\&quot;text\&quot;:[0,\&quot;409 Conflict (if key already exists)\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;400-bad-request-1\&quot;],\&quot;text\&quot;:[0,\&quot;400 Bad Request\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;update-item\&quot;],\&quot;text\&quot;:[0,\&quot;Update Item\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;example-2\&quot;],\&quot;text\&quot;:[0,\&quot;Example\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;200-ok-2\&quot;],\&quot;text\&quot;:[0,\&quot;200 OK\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;client-errors-2\&quot;],\&quot;text\&quot;:[0,\&quot;Client errors\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;404-not-found-if-key-does-not-exist\&quot;],\&quot;text\&quot;:[0,\&quot;404 Not Found (if key does not exist)\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;400-bad-request-2\&quot;],\&quot;text\&quot;:[0,\&quot;400 Bad Request\&quot;]}],[0,{\&quot;depth\&quot;:[0,3],\&quot;slug\&quot;:[0,\&quot;query-items\&quot;],\&quot;text\&quot;:[0,\&quot;Query Items\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;example-3\&quot;],\&quot;text\&quot;:[0,\&quot;Example\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;200-ok-3\&quot;],\&quot;text\&quot;:[0,\&quot;200 OK\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;client-errors-3\&quot;],\&quot;text\&quot;:[0,\&quot;Client Errors\&quot;]}],[0,{\&quot;depth\&quot;:[0,5],\&quot;slug\&quot;:[0,\&quot;400-bad-request-3\&quot;],\&quot;text\&quot;:[0,\&quot;400 Bad Request\&quot;]}],[0,{\&quot;depth\&quot;:[0,2],\&quot;slug\&quot;:[0,\&quot;issues\&quot;],\&quot;text\&quot;:[0,\&quot;Issues\&quot;]}]]&quot;],&quot;class&quot;:[0,&quot;astro-WTRARWLM&quot;]}" ssr="" client="media" opts="{&quot;name&quot;:&quot;TableOfContents&quot;,&quot;value&quot;:&quot;(max-width: 50em)&quot;}" await-children=""><h2 class="heading">On this page</h2><ul><li class="heading-link depth-2"><a href="https://deta.space/docs/en/reference/base/HTTP#general--auth">General &amp; Auth</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#root-url">Root URL</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#auth">Auth</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#content-type">Content Type</a></li><li class="heading-link depth-2"><a href="https://deta.space/docs/en/reference/base/HTTP#endpoints">Endpoints</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#put-items">Put Items</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#get-item">Get Item</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#delete-item">Delete Item</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#insert-item">Insert Item</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#update-item">Update Item</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#query-items">Query Items</a></li><li class="heading-link depth-2"><a href="https://deta.space/docs/en/reference/base/HTTP#issues">Issues</a></li></ul></astro-island>
+		</nav>
+		<h2 id="general--auth">General &amp; Auth</h2>
+<blockquote>
+<p>You can get your <strong>Project Key</strong> and your <strong>Project ID</strong> of your Project in <a href="https://deta.space/builder">Builder</a>. You need these to talk with the Deta API.</p>
+</blockquote>
+<blockquote>
+<p>ℹ️ Base currently supports <strong>maximum 16 digit numbers</strong> (integers and floating points), please store larger numbers as a string.</p>
+</blockquote>
+<h3 id="root-url">Root URL</h3>
+<p>This URL is the base for all your HTTP requests:</p>
+<p><strong><code>https://database.deta.sh/v1/{project_id}/{base_name}</code></strong></p>
+<blockquote>
+<p>The <code>base_name</code> is the name given to your database. If you already have a <strong>Base</strong>, then you can go ahead and provide it’s name here. Additionally, you could provide any name here when doing any <code>PUT</code> or <code>POST</code> request and our backend will automatically create a new base for you if it does not exist. There is no limit on how many “Bases” you can create.</p>
+</blockquote>
+<h3 id="auth">Auth</h3>
+<p>A <strong>Project Key</strong> <em>must</em> to be provided in the request <strong>headers</strong> as a value for the <code>X-API-Key</code> key for authentication. This is how we authorize your requests.</p>
+<p>Example <code>'X-API-Key: a0abcyxz_aSecretValue'</code>.</p>
+<h3 id="content-type">Content Type</h3>
+<p>We only accept JSON payloads. Make sure you set the headers correctly: <code>'Content-Type: application/json'</code></p>
+<h2 id="endpoints">Endpoints</h2>
+<h3 id="put-items">Put Items</h3>
+<p><strong><code>PUT /items</code></strong></p>
+<p>Stores multiple items in a single request. This request overwrites an item if the key already exists.</p>
+<astro-island uid="r0Amh" component-url="/docs_assets/js/Tabs-dbc69448.js" component-export="default" renderer-url="/docs_assets/js/client-8b8a1f0c.js" props="{&quot;sharedStore&quot;:[0,&quot;tabReq&quot;],&quot;defaultPanel&quot;:[0,&quot;request&quot;],&quot;tabs&quot;:[1,&quot;[[0,{\&quot;label\&quot;:[0,\&quot;Request\&quot;],\&quot;value\&quot;:[0,\&quot;request\&quot;]}],[0,{\&quot;label\&quot;:[0,\&quot;Response\&quot;],\&quot;value\&quot;:[0,\&quot;response\&quot;]}]]&quot;]}" client="visible" opts="{&quot;name&quot;:&quot;Tabs&quot;,&quot;value&quot;:true}" await-children=""><div class="_container_lr6b6_1"><div class="_tab-scroll-overflow_lr6b6_6"><div role="tablist" class="_tablist_lr6b6_31 TabGroup no-flex"><button aria-selected="true" role="tab" type="button" id="0-request" tabindex="0" class="_tab_lr6b6_6">Request</button><button aria-selected="false" role="tab" type="button" id="0-response" tabindex="-1" class="_tab_lr6b6_6">Response</button><span aria-hidden="true" class="_selectedIndicator_lr6b6_35"></span></div></div><div hidden="" role="tabpanel" aria-labelledby="0-response" class="_tabpanel_lr6b6_27"><astro-slot name="panel.response"><h5 id="207-multi-status"><code>207 Multi Status</code></h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#A5D6FF">"processed"</span><span style="color:#C9D1D9">: {</span></span>
+<span class="line"><span style="color:#C9D1D9">        </span><span style="color:#A5D6FF">"items"</span><span style="color:#C9D1D9">: [</span></span>
+<span class="line"><span style="color:#C9D1D9">            </span><span style="color:#8B949E">// items which were stored </span></span>
+<span class="line"><span style="color:#C9D1D9">        ]</span></span>
+<span class="line"><span style="color:#C9D1D9">    },</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#A5D6FF">"failed"</span><span style="color:#C9D1D9">: {</span></span>
+<span class="line"><span style="color:#C9D1D9">       </span><span style="color:#A5D6FF">"items"</span><span style="color:#C9D1D9">: [</span></span>
+<span class="line"><span style="color:#C9D1D9">           </span><span style="color:#8B949E">// items failed because of internal processing</span></span>
+<span class="line"><span style="color:#C9D1D9">       ]</span></span>
+<span class="line"><span style="color:#C9D1D9">    }</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><h5 id="client-errors">Client errors</h5><p>In case of client errors, <strong>no items</strong> in the request are stored.</p><h5 id="400-bad-request"><code>400 Bad Request</code></h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#A5D6FF">"errors"</span><span style="color:#C9D1D9"> : [</span></span>
+<span class="line"><span style="color:#C9D1D9">       </span><span style="color:#8B949E">// error messages</span></span>
+<span class="line"><span style="color:#C9D1D9">    ] </span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><p>Bad requests occur in the following cases:</p><ul>
+<li>if an item has a non-string key</li>
+<li>if the number of items in the requests exceeds 25</li>
+<li>if total request size exceeds 16 MB</li>
+<li>if any individual item exceeds 400KB</li>
+<li>if there are two items with identical keys</li>
+</ul></astro-slot></div><div role="tabpanel" aria-labelledby="0-request" class="_tabpanel_lr6b6_27"><astro-slot name="panel.request">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>JSON Payload</th><th>Required</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>items</code></td><td>Yes</td><td><code>array</code></td><td>An array of items <code>object</code> to be stored.</td></tr></tbody></table><h5 id="example">Example</h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#8B949E">// array of items to put</span></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#7EE787">"items"</span><span style="color:#C9D1D9">: [</span></span>
+<span class="line"><span style="color:#C9D1D9">        {</span></span>
+<span class="line"><span style="color:#C9D1D9">            </span><span style="color:#7EE787">"key"</span><span style="color:#C9D1D9">: {</span><span style="color:#FFA198">key</span><span style="color:#C9D1D9">}, </span><span style="color:#8B949E">// optional, a random key is generated if not provided</span></span>
+<span class="line"><span style="color:#C9D1D9">            </span><span style="color:#7EE787">"field1"</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">"value1"</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">            </span><span style="color:#8B949E">// rest of item</span></span>
+<span class="line"><span style="color:#C9D1D9">        },</span></span>
+<span class="line"><span style="color:#C9D1D9">        </span><span style="color:#8B949E">// rest of items</span></span>
+<span class="line"><span style="color:#C9D1D9">    ]</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre></astro-slot></div></div></astro-island>
+<h3 id="get-item">Get Item</h3>
+<p><strong><code>GET /items/{key}</code></strong></p>
+<p>Get a stored item.</p>
+<blockquote>
+<p>If the <em>key</em> contains url unsafe or reserved characters, make sure to url-encode the <em>key</em>. Otherwise, it will lead to unexpected behavior.</p>
+</blockquote>
+<style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(s,c,n)=>{const r=async()=>{await(await s())()};let i=new IntersectionObserver(e=>{for(const t of e)if(!!t.isIntersecting){i.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];i.observe(t)}},window.dispatchEvent(new Event("astro:visible"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="Z1tiWFR" component-url="/docs_assets/js/Tabs-dbc69448.js" component-export="default" renderer-url="/docs_assets/js/client-8b8a1f0c.js" props="{&quot;sharedStore&quot;:[0,&quot;tabReq&quot;],&quot;defaultPanel&quot;:[0,&quot;request&quot;],&quot;tabs&quot;:[1,&quot;[[0,{\&quot;label\&quot;:[0,\&quot;Request\&quot;],\&quot;value\&quot;:[0,\&quot;request\&quot;]}],[0,{\&quot;label\&quot;:[0,\&quot;Response\&quot;],\&quot;value\&quot;:[0,\&quot;response\&quot;]}]]&quot;]}" client="visible" opts="{&quot;name&quot;:&quot;Tabs&quot;,&quot;value&quot;:true}" await-children=""><div class="_container_lr6b6_1"><div class="_tab-scroll-overflow_lr6b6_6"><div role="tablist" class="_tablist_lr6b6_31 TabGroup no-flex"><button aria-selected="true" role="tab" type="button" id="1-request" tabindex="0" class="_tab_lr6b6_6">Request</button><button aria-selected="false" role="tab" type="button" id="1-response" tabindex="-1" class="_tab_lr6b6_6">Response</button><span aria-hidden="true" class="_selectedIndicator_lr6b6_35"></span></div></div><div hidden="" role="tabpanel" aria-labelledby="1-response" class="_tabpanel_lr6b6_27"><astro-slot name="panel.response"><h5 id="200-ok"><code>200 OK</code></h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#A5D6FF">"key"</span><span style="color:#C9D1D9">: {key},</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#8B949E">// the rest of the item</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><h5 id="404-not-found"><code>404 Not Found</code></h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#A5D6FF">"key"</span><span style="color:#C9D1D9">: {key}</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre></astro-slot></div><div role="tabpanel" aria-labelledby="1-request" class="_tabpanel_lr6b6_27"><astro-slot name="panel.request">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>URL Parameter</th><th>Required</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>key</code></td><td>Yes</td><td><code>string</code></td><td>The key (aka. ID) of the item you want to retrieve</td></tr></tbody></table></astro-slot></div></div></astro-island>
+<h3 id="delete-item">Delete Item</h3>
+<p><strong><code>DELETE /items/{key}</code></strong></p>
+<p>Delete a stored item.</p>
+<blockquote>
+<p>If the <em>key</em> contains url unsafe or reserved characters, make sure to url-encode the <em>key</em>. Otherwise, it will lead to unexpected behavior.</p>
+</blockquote>
+<astro-island uid="5XFOd" component-url="/docs_assets/js/Tabs-dbc69448.js" component-export="default" renderer-url="/docs_assets/js/client-8b8a1f0c.js" props="{&quot;sharedStore&quot;:[0,&quot;tabReq&quot;],&quot;defaultPanel&quot;:[0,&quot;request&quot;],&quot;tabs&quot;:[1,&quot;[[0,{\&quot;label\&quot;:[0,\&quot;Request\&quot;],\&quot;value\&quot;:[0,\&quot;request\&quot;]}],[0,{\&quot;label\&quot;:[0,\&quot;Response\&quot;],\&quot;value\&quot;:[0,\&quot;response\&quot;]}]]&quot;]}" client="visible" opts="{&quot;name&quot;:&quot;Tabs&quot;,&quot;value&quot;:true}" await-children=""><div class="_container_lr6b6_1"><div class="_tab-scroll-overflow_lr6b6_6"><div role="tablist" class="_tablist_lr6b6_31 TabGroup no-flex"><button aria-selected="true" role="tab" type="button" id="2-request" tabindex="0" class="_tab_lr6b6_6">Request</button><button aria-selected="false" role="tab" type="button" id="2-response" tabindex="-1" class="_tab_lr6b6_6">Response</button><span aria-hidden="true" class="_selectedIndicator_lr6b6_35"></span></div></div><div hidden="" role="tabpanel" aria-labelledby="2-response" class="_tabpanel_lr6b6_27"><astro-slot name="panel.response"><p>The server will always return <code>200</code> regardless if an item with that <code>key</code> existed or not.</p><h5 id="200-ok-1"><code>200 OK</code></h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"key"</span><span style="color:#C9D1D9">: {</span><span style="color:#FFA198">key</span><span style="color:#C9D1D9">}</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre></astro-slot></div><div role="tabpanel" aria-labelledby="2-request" class="_tabpanel_lr6b6_27"><astro-slot name="panel.request">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>URL Parameter</th><th>Required</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>key</code></td><td>Yes</td><td><code>string</code></td><td>The key (aka. ID) of the item you want to delete.</td></tr></tbody></table></astro-slot></div></div></astro-island>
+<h3 id="insert-item">Insert Item</h3>
+<p><strong><code>POST /items</code></strong></p>
+<p>Creates a new item only if no item with the same <code>key</code> exists.</p>
+<astro-island uid="8kwCo" component-url="/docs_assets/js/Tabs-dbc69448.js" component-export="default" renderer-url="/docs_assets/js/client-8b8a1f0c.js" props="{&quot;sharedStore&quot;:[0,&quot;tabReq&quot;],&quot;defaultPanel&quot;:[0,&quot;request&quot;],&quot;tabs&quot;:[1,&quot;[[0,{\&quot;label\&quot;:[0,\&quot;Request\&quot;],\&quot;value\&quot;:[0,\&quot;request\&quot;]}],[0,{\&quot;label\&quot;:[0,\&quot;Response\&quot;],\&quot;value\&quot;:[0,\&quot;response\&quot;]}]]&quot;]}" client="visible" opts="{&quot;name&quot;:&quot;Tabs&quot;,&quot;value&quot;:true}" await-children=""><div class="_container_lr6b6_1"><div class="_tab-scroll-overflow_lr6b6_6"><div role="tablist" class="_tablist_lr6b6_31 TabGroup no-flex"><button aria-selected="true" role="tab" type="button" id="3-request" tabindex="0" class="_tab_lr6b6_6">Request</button><button aria-selected="false" role="tab" type="button" id="3-response" tabindex="-1" class="_tab_lr6b6_6">Response</button><span aria-hidden="true" class="_selectedIndicator_lr6b6_35"></span></div></div><div hidden="" role="tabpanel" aria-labelledby="3-response" class="_tabpanel_lr6b6_27"><astro-slot name="panel.response"><h5 id="201-created"><code>201 Created</code></h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"key"</span><span style="color:#C9D1D9">: {</span><span style="color:#FFA198">key</span><span style="color:#C9D1D9">}, </span><span style="color:#8B949E">// auto generated key if key was not provided in the request</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"field1"</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">"value1"</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#8B949E">// the rest of the item</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><h5 id="client-errors-1">Client errors</h5><h5 id="409-conflict-if-key-already-exists"><code>409 Conflict</code> (if key already exists)</h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"errors"</span><span style="color:#C9D1D9">: [</span><span style="color:#A5D6FF">"Key already exists"</span><span style="color:#C9D1D9">] </span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><h5 id="400-bad-request-1"><code>400 Bad Request</code></h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"errors"</span><span style="color:#C9D1D9">: [</span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#8B949E">// error messages</span></span>
+<span class="line"><span style="color:#C9D1D9">  ]</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><p>Bad requests occur in the following cases:</p><ul>
+<li>if the item has a non-string key</li>
+<li>if size of the item exceeds 400KB</li>
+</ul></astro-slot></div><div role="tabpanel" aria-labelledby="3-request" class="_tabpanel_lr6b6_27"><astro-slot name="panel.request">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>JSON Payload</th><th>Required</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>item</code></td><td>Yes</td><td><code>object</code></td><td>The item to be stored.</td></tr></tbody></table><h5 id="example-1">Example</h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#7EE787">"item"</span><span style="color:#C9D1D9">: {</span></span>
+<span class="line"><span style="color:#C9D1D9">        </span><span style="color:#7EE787">"key"</span><span style="color:#C9D1D9">: {</span><span style="color:#FFA198">key</span><span style="color:#C9D1D9">}, </span><span style="color:#8B949E">// optional</span></span>
+<span class="line"><span style="color:#C9D1D9">        </span><span style="color:#8B949E">// rest of item</span></span>
+<span class="line"><span style="color:#C9D1D9">    }</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre></astro-slot></div></div></astro-island>
+<h3 id="update-item">Update Item</h3>
+<p><strong><code>PATCH /items/{key}</code></strong></p>
+<p>Updates an item only if an item with <code>key</code> exists.</p>
+<blockquote>
+<p>If the <em>key</em> contains url unsafe or reserved characters, make sure to url-encode the <em>key</em>. Otherwise, it will lead to unexpected behavior.</p>
+</blockquote>
+<astro-island uid="4ravd" component-url="/docs_assets/js/Tabs-dbc69448.js" component-export="default" renderer-url="/docs_assets/js/client-8b8a1f0c.js" props="{&quot;sharedStore&quot;:[0,&quot;tabReq&quot;],&quot;defaultPanel&quot;:[0,&quot;request&quot;],&quot;tabs&quot;:[1,&quot;[[0,{\&quot;label\&quot;:[0,\&quot;Request\&quot;],\&quot;value\&quot;:[0,\&quot;request\&quot;]}],[0,{\&quot;label\&quot;:[0,\&quot;Response\&quot;],\&quot;value\&quot;:[0,\&quot;response\&quot;]}]]&quot;]}" client="visible" opts="{&quot;name&quot;:&quot;Tabs&quot;,&quot;value&quot;:true}" await-children=""><div class="_container_lr6b6_1"><div class="_tab-scroll-overflow_lr6b6_6"><div role="tablist" class="_tablist_lr6b6_31 TabGroup no-flex"><button aria-selected="true" role="tab" type="button" id="4-request" tabindex="0" class="_tab_lr6b6_6">Request</button><button aria-selected="false" role="tab" type="button" id="4-response" tabindex="-1" class="_tab_lr6b6_6">Response</button><span aria-hidden="true" class="_selectedIndicator_lr6b6_35"></span></div></div><div hidden="" role="tabpanel" aria-labelledby="4-response" class="_tabpanel_lr6b6_27"><astro-slot name="panel.response"><h5 id="200-ok-2"><code>200 OK</code></h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#7EE787">"key"</span><span style="color:#C9D1D9">: {</span><span style="color:#FFA198">key</span><span style="color:#C9D1D9">},</span></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#7EE787">"set"</span><span style="color:#C9D1D9">: {</span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#8B949E">// identical to the request</span></span>
+<span class="line"><span style="color:#C9D1D9">   },</span></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#7EE787">"delete"</span><span style="color:#C9D1D9">: [</span><span style="color:#A5D6FF">"field1"</span><span style="color:#C9D1D9">, </span><span style="color:#FFA198">..</span><span style="color:#C9D1D9">] </span><span style="color:#8B949E">// identical to the request </span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><h5 id="client-errors-2">Client errors</h5><h5 id="404-not-found-if-key-does-not-exist"><code>404 Not Found</code> (if key does not exist)</h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"errors"</span><span style="color:#C9D1D9">: [</span><span style="color:#A5D6FF">"Key not found"</span><span style="color:#C9D1D9">] </span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><h5 id="400-bad-request-2"><code>400 Bad Request</code></h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"errors"</span><span style="color:#C9D1D9">: [</span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#8B949E">// error messages</span></span>
+<span class="line"><span style="color:#C9D1D9">  ]</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><p>Bad requests occur in the following cases:</p><ul>
+<li>if you’re updating or deleting the <code>key</code></li>
+<li>if <code>set</code> and <code>delete</code> have conflicting attributes</li>
+<li>if you’re setting a hierarchical attribute but an upper level attribute does not exist, for eg. <code>{"set": {"user.age": 22}}</code> but <code>user</code> is not an attribute of the item.</li>
+</ul></astro-slot></div><div role="tabpanel" aria-labelledby="4-request" class="_tabpanel_lr6b6_27"><astro-slot name="panel.request">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>JSON Payload</th><th>Required</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>set</code></td><td>no</td><td><code>object</code></td><td>The attributes to be updated or created.</td></tr><tr><td><code>increment</code></td><td>no</td><td><code>object</code></td><td>The attributes to be incremented. Increment value can be negative.</td></tr><tr><td><code>append</code></td><td>no</td><td><code>object</code></td><td>The attributes to append a value to. Appended value must be a list.</td></tr><tr><td><code>prepend</code></td><td>no</td><td><code>object</code></td><td>The attributes to prepend a value to. Prepended value must be a list.</td></tr><tr><td><code>delete</code></td><td>no</td><td><code>string array</code></td><td>The attributes to be deleted.</td></tr></tbody></table><h5 id="example-2">Example</h5><p>If the following item exists in the database</p><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"key"</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">"user-a"</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"username"</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">"jimmy"</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"profile"</span><span style="color:#C9D1D9">: {</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#7EE787">"age"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">32</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#7EE787">"active"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">false</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#7EE787">"hometown"</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">"pittsburgh"</span><span style="color:#C9D1D9"> </span></span>
+<span class="line"><span style="color:#C9D1D9">  },</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"on_mobile"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">true</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"likes"</span><span style="color:#C9D1D9">: [</span><span style="color:#A5D6FF">"anime"</span><span style="color:#C9D1D9">],</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"purchases"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">1</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><p>Then the request</p><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#7EE787">"set"</span><span style="color:#C9D1D9"> : {</span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#8B949E">// change ages to 33</span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#7EE787">"profile.age"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">33</span><span style="color:#C9D1D9">, </span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#8B949E">// change active to true</span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#7EE787">"profile.active"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">true</span><span style="color:#C9D1D9">, </span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#8B949E">// add a new attribute `profile.email`</span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#7EE787">"profile.email"</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">"jimmy@deta.sh"</span></span>
+<span class="line"><span style="color:#C9D1D9">   },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#7EE787">"increment"</span><span style="color:#C9D1D9"> :{</span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#8B949E">// increment purchases by 2</span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#7EE787">"purchases"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">2</span></span>
+<span class="line"><span style="color:#C9D1D9">   },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#7EE787">"append"</span><span style="color:#C9D1D9">: {</span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#8B949E">// append to 'likes' </span></span>
+<span class="line"><span style="color:#C9D1D9">     </span><span style="color:#7EE787">"likes"</span><span style="color:#C9D1D9">: [</span><span style="color:#A5D6FF">"ramen"</span><span style="color:#C9D1D9">]</span></span>
+<span class="line"><span style="color:#C9D1D9">   },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#8B949E">// remove attributes 'profile.hometown' and 'on_mobile'</span></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#7EE787">"delete"</span><span style="color:#C9D1D9">: [</span><span style="color:#A5D6FF">"profile.hometown"</span><span style="color:#C9D1D9">, </span><span style="color:#A5D6FF">"on_mobile"</span><span style="color:#C9D1D9">]</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><p>results in the following item in the database:</p><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"key"</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">"user-a"</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"username"</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">"jimmy"</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"profile"</span><span style="color:#C9D1D9">: {</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#7EE787">"age"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">33</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#7EE787">"active"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">true</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#7EE787">"email"</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">"jimmy@deta.sh"</span></span>
+<span class="line"><span style="color:#C9D1D9">  },</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"likes"</span><span style="color:#C9D1D9">: [</span><span style="color:#A5D6FF">"anime"</span><span style="color:#C9D1D9">, </span><span style="color:#A5D6FF">"ramen"</span><span style="color:#C9D1D9">],</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"purchases"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">3</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre></astro-slot></div></div></astro-island>
+<h3 id="query-items">Query Items</h3>
+<p><strong><code>POST /query</code></strong></p>
+<p>List items that match a <a href="https://deta.space/docs/en/reference/base/queries">query</a>.</p>
+<astro-island uid="ZCDJGy" component-url="/docs_assets/js/Tabs-dbc69448.js" component-export="default" renderer-url="/docs_assets/js/client-8b8a1f0c.js" props="{&quot;sharedStore&quot;:[0,&quot;tabReq&quot;],&quot;defaultPanel&quot;:[0,&quot;request&quot;],&quot;tabs&quot;:[1,&quot;[[0,{\&quot;label\&quot;:[0,\&quot;Request\&quot;],\&quot;value\&quot;:[0,\&quot;request\&quot;]}],[0,{\&quot;label\&quot;:[0,\&quot;Response\&quot;],\&quot;value\&quot;:[0,\&quot;response\&quot;]}]]&quot;]}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;Tabs&quot;,&quot;value&quot;:true}" await-children=""><div class="_container_lr6b6_1"><div class="_tab-scroll-overflow_lr6b6_6"><div class="_tablist_lr6b6_31 TabGroup no-flex" role="tablist"><button aria-selected="true" tabindex="0" role="tab" type="button" class="_tab_lr6b6_6" id="26-request">Request</button><button aria-selected="false" tabindex="-1" role="tab" type="button" class="_tab_lr6b6_6" id="26-response">Response</button><span class="_selectedIndicator_lr6b6_35" aria-hidden="true"></span></div></div><div hidden="" role="tabpanel" aria-labelledby="26-response" class="_tabpanel_lr6b6_27"><astro-slot name="panel.response"><p>The response is paginated if data process size exceeds 1 MB (before the query is applied) or the total number of items matching the <code>query</code> exceeds the <code>limit</code> provided in the request.</p><p>For paginated responses, <code>last</code> will return the last key seen in the response. You must use this <code>key</code> in the following request to continue retreival of items. If the response does not have the <code>last</code> key, then no further items are to be retreived.</p><blockquote>
+<p>Upto 1 MB of data is retrieved before filtering with the query. Thus, in some cases you might get an empty list of items but still the <code>last</code> key evaluated in the response.</p>
+<p>To apply the query through all the items in your base, you have to call fetch until <code>last</code> is empty.</p>
+</blockquote><h5 id="200-ok-3"><code>200 OK</code></h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#7EE787">"paging"</span><span style="color:#C9D1D9">: {</span></span>
+<span class="line"><span style="color:#C9D1D9">        </span><span style="color:#7EE787">"size"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">5</span><span style="color:#C9D1D9">, </span><span style="color:#8B949E">// size of items returned</span></span>
+<span class="line"><span style="color:#C9D1D9">        </span><span style="color:#7EE787">"last"</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">"adfjie"</span><span style="color:#C9D1D9"> </span><span style="color:#8B949E">// last key seen if paginated, provide this key in the following request</span></span>
+<span class="line"><span style="color:#C9D1D9">    },</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#7EE787">"items"</span><span style="color:#C9D1D9">: [</span></span>
+<span class="line"><span style="color:#C9D1D9">       {</span></span>
+<span class="line"><span style="color:#C9D1D9">         </span><span style="color:#7EE787">"key"</span><span style="color:#C9D1D9">: {</span><span style="color:#FFA198">key</span><span style="color:#C9D1D9">},</span></span>
+<span class="line"><span style="color:#C9D1D9">         </span><span style="color:#8B949E">// rest of the item</span></span>
+<span class="line"><span style="color:#C9D1D9">       },</span></span>
+<span class="line"><span style="color:#C9D1D9">       </span><span style="color:#8B949E">// rest of the items</span></span>
+<span class="line"><span style="color:#C9D1D9">   ]</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><h5 id="client-errors-3">Client Errors</h5><h5 id="400-bad-request-3"><code>400 Bad Request</code></h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">  </span><span style="color:#7EE787">"errors"</span><span style="color:#C9D1D9">: [</span></span>
+<span class="line"><span style="color:#C9D1D9">    </span><span style="color:#8B949E">// error messages</span></span>
+<span class="line"><span style="color:#C9D1D9">  ]</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre><p>Bad requests occur in the following cases:</p><ul>
+<li>if a query is made on the <code>key</code></li>
+<li>if a query is not of the right format</li>
+<li>if <code>limit</code> is provided in the request and is less than 1</li>
+</ul></astro-slot></div><div role="tabpanel" aria-labelledby="26-request" class="_tabpanel_lr6b6_27"><astro-slot name="panel.request">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>JSON Payload</th><th>Required</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>query</code></td><td>No</td><td><code>list</code></td><td>list of a <a href="https://deta.space/docs/en/reference/base/queries">query</a></td></tr><tr><td><code>limit</code></td><td>No</td><td><code>int</code></td><td>no of items to return. min value 1 if used</td></tr><tr><td><code>last</code></td><td>No</td><td><code>string</code></td><td>last key seen in a previous paginated response</td></tr></tbody></table><h5 id="example-3">Example</h5><pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#7EE787">"query"</span><span style="color:#C9D1D9">: [</span></span>
+<span class="line"><span style="color:#C9D1D9">        </span><span style="color:#8B949E">// separate objects in the list are ORed</span></span>
+<span class="line"><span style="color:#C9D1D9">        </span><span style="color:#8B949E">// query evaluates to list all users whose hometown is Berlin and is active OR all users who age less than 40</span></span>
+<span class="line"><span style="color:#C9D1D9">        {</span><span style="color:#7EE787">"user.hometown"</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">"Berlin"</span><span style="color:#C9D1D9">, </span><span style="color:#7EE787">"user.active"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">true</span><span style="color:#C9D1D9">},</span></span>
+<span class="line"><span style="color:#C9D1D9">        {</span><span style="color:#7EE787">"user.age?lt"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">40</span><span style="color:#C9D1D9">}</span></span>
+<span class="line"><span style="color:#C9D1D9">   ],</span></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#7EE787">"limit"</span><span style="color:#C9D1D9">: </span><span style="color:#79C0FF">5</span><span style="color:#C9D1D9">,</span></span>
+<span class="line"><span style="color:#C9D1D9">   </span><span style="color:#7EE787">"last"</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">"afsefasd"</span><span style="color:#C9D1D9"> </span><span style="color:#8B949E">// last key if applicable</span></span>
+<span class="line"><span style="color:#C9D1D9">}</span></span></code></pre></astro-slot></div></div></astro-island>
+<h2 id="issues">Issues</h2>
+<p>If you run into any issues, consider reporting them in our <a href="https://github.com/orgs/deta/discussions">Github Discussions</a>.</p>
+	</section>
+	<nav class="block sm:hidden astro-WTRARWLM">
+		<h2 class="heading astro-ABYPIISU">More</h2>
+<ul class="astro-ABYPIISU">
+	<li class="heading-link depth-2 astro-ABYPIISU">
+			<a class="edit-on-github astro-ABYPIISU" href="https://github.com/deta/space-docs/tree/main/src/pages/en/src/pages/docs/en/reference/base/HTTP.md" target="_blank">
+				<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" class="svg-inline--fa fa-pen fa-w-16 astro-ABYPIISU" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="1em" width="1em">
+					<path fill="currentColor" d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z" class="astro-ABYPIISU"></path>
+				</svg>
+				<span class="astro-ABYPIISU">Edit this page</span>
+			</a>
+		</li>
+	<li class="heading-link depth-2 astro-ABYPIISU">
+			<a href="https://go.deta.dev/discord" target="_blank" class="astro-ABYPIISU">
+				<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="comment-alt" class="svg-inline--fa fa-comment-alt fa-w-16 astro-ABYPIISU" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="1em" width="1em">
+					<path fill="currentColor" d="M448 0H64C28.7 0 0 28.7 0 64v288c0 35.3 28.7 64 64 64h96v84c0 9.8 11.2 15.5 19.1 9.7L304 416h144c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64z" class="astro-ABYPIISU"></path>
+				</svg>
+				<span class="astro-ABYPIISU">Join our community</span>
+			</a>
+		</li>
+</ul>
+
+
+	</nav>
+</article>
+
+
+			</div>
+			<aside id="grid-right" class="grid-sidebar astro-NPOKQNRO" title="Table of Contents">
+				<nav class="sidebar-nav astro-WZDVBDX6" aria-labelledby="grid-right">
+	<div class="sidebar-nav-inner astro-WZDVBDX6">
+		<h2 class="heading">On this page</h2><ul><li class="heading-link depth-2"><a href="https://deta.space/docs/en/reference/base/HTTP#general--auth">General &amp; Auth</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#root-url">Root URL</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#auth">Auth</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#content-type">Content Type</a></li><li class="heading-link depth-2"><a href="https://deta.space/docs/en/reference/base/HTTP#endpoints">Endpoints</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#put-items">Put Items</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#get-item">Get Item</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#delete-item">Delete Item</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#insert-item">Insert Item</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#update-item">Update Item</a></li><li class="heading-link depth-3"><a href="https://deta.space/docs/en/reference/base/HTTP#query-items">Query Items</a></li><li class="heading-link depth-2"><a href="https://deta.space/docs/en/reference/base/HTTP#issues">Issues</a></li></ul>
+	</div>
+</nav>
+
+
+			</aside>
+		</main>
+		<footer class="astro-STQHSQ66">
+	<p class="title astro-STQHSQ66">DETA ~ 2335</p>
+
+	<p class="astro-STQHSQ66"><a href="https://deta.space/legal" class="astro-STQHSQ66">Legal</a> / <a href="https://deta.space/privacy" class="astro-STQHSQ66">Privacy</a> / <a href="https://deta.space/terms" class="astro-STQHSQ66">Terms</a></p>
+</footer>
+
+
+
+		<astro-island uid="1Hj6X1" component-url="/docs_assets/js/TeletypeWrapper-016c8302.js" component-export="default" renderer-url="/docs_assets/js/client-f8c1fc7f.js" props="{}" client="only" opts="{&quot;name&quot;:&quot;TeletypeWrapper&quot;,&quot;value&quot;:&quot;svelte&quot;}"><div class="svelte-1xhpy6j"><div class="inner-wrapper svelte-1xhpy6j"> <div class="notifications svelte-ac68n3"></div>  <div class="box svelte-1xhpy6j"> <div class="footer svelte-1xhpy6j" tabindex="-1"><img src="./HTTP API - Space Docs_files/deta-7c76948e.svg" alt="Deta Icon" class="svelte-1xhpy6j"> <input id="teletype-input" type="text" autocomplete="off" aria-label="Teletype" placeholder="Type a command or search" class="svelte-1xhpy6j">  </div></div></div></div>  </astro-island>
+	</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
